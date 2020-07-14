@@ -3,20 +3,20 @@
 #include "degree.h"
 using namespace std;
 
-class student
+class Student
 {
 private:
     string StudentID;
     string FirstName;
     string LastName;
     string Email;
-    int age;
+    int Age;
     int Days[3];
 
 public:
     //constructor
-    student(/* args */);
-    ~student();
+    Student();
+    Student(string, string, string, string, int, int *);
 
     //get
     string getStudentId();
@@ -37,5 +37,5 @@ public:
     void setDegreeType(DegreeProgram);
 
     //destructor
-    ~student();
+    ~Student();
 };
