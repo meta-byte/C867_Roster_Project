@@ -33,7 +33,7 @@ public:
     void setStudentID(string studentID);
     void setFirstName(string firstName);
     void setLastName(string lastName);
-    void setEmail(string emailAddress);
+    void setEmail(string email);
     void setAge(int age);
     void setDays(int days[]);
     void setDegree(DegreeProgram);
