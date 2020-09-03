@@ -1,8 +1,7 @@
+#include <string>
 #include <iostream>
 #include <iomanip>
 #include "student.h"
-using std::cout;
-using std::left;
 using std::setw;
 
 Student::Student()
@@ -11,23 +10,25 @@ Student::Student()
     this->firstName = "";
     this->lastName = "";
     this->email = "";
-    this->age = 0;
-    this->days[0, 0, 0];
+    this->age = "";
+    for (int i = 0; i < daysSize; i++)
+        this->days[i] = days[i];
     this->degreeProgram = SOFTWARE;
 };
 
-Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[], DegreeProgram degree)
+Student::Student(string studentID, string firstName, string lastName, string email, string age, int days[], DegreeProgram degree)
 {
     this->studentID = studentID;
     this->firstName = firstName;
     this->lastName = lastName;
     this->email = email;
-    this->degreeProgram = degree;
-    for (int i = 0; i < 3; i++)
+    this->age = age;
+    for (int i = 0; i < daysSize; i++)
         this->days[i] = days[i];
+    this->degreeProgram = degree;
 };
 
-string Student::getStudentId()
+string Student::getStudentID()
 {
     return studentID;
 };
@@ -43,13 +44,13 @@ string Student::getEmail()
 {
     return email;
 };
-int Student::getAge()
+string Student::getAge()
 {
     return age;
 };
-int Student::getDays()
+int *Student::getDays()
 {
-    return days[3];
+    return days;
 };
 DegreeProgram Student::getDegree()
 {
@@ -73,13 +74,13 @@ void Student::setEmail(string email)
 {
     this->email = email;
 }
-void Student::setAge(int age)
+void Student::setAge(string age)
 {
     this->age = age;
 }
 void Student::setDays(int days[])
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < daysSize; i++)
         this->days[i] = days[i];
 }
 void Student::setDegree(DegreeProgram degree)
@@ -87,17 +88,9 @@ void Student::setDegree(DegreeProgram degree)
     this->degreeProgram = degree;
 }
 
-void ::Student::print()
+void Student::print()
 {
-    cout << left << setw(5) << studentID;
-    cout << left << setw(45) << firstName;
-    cout << left << setw(45) << lastName;
-    cout << left << setw(45) << email;
-    cout << left << setw(10) << age;
-    cout << left << setw(10) << days[0];
-    cout << left << setw(10) << days[1];
-    cout << left << setw(10) << days[2];
-    cout << left << setw(20) << degreeProgramStrings[getDegree()];
+    cout << left << studentID << "\t " << firstName << "\t" << setw(10) << lastName << "\t" << email << "\t" << age << "\t" << days[0] << ", " << days[1] << ", " << days[2] << "\t " << setw(5) << degreeProgramStrings[getDegree()] << endl;
 }
 
 Student::~Student()

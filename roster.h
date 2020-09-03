@@ -8,18 +8,18 @@ class Roster
 private:
     int lastIndex;
     int capacity;
-    Student **students;
+    Student **classRosterArray;
 
 public:
     Roster();
     Roster(int capacity);
 
-    Student *getStudentAt(int index);
-    void parseThenAdd(string datarow);
-    void print_All();
+    void parseThenAdd(string row);
+    void printAll();
     bool remove(string studentID);
     void printAverageDays(string studentID);
     void printInvalidEmails();
     void printByDegreeProgram(DegreeProgram degree);
+
     ~Roster();
 };
